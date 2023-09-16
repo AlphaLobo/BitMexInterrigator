@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="BitMex\" />
+    <Folder Include="BitMex\API\" />
   </ItemGroup>
 
 </Project>
