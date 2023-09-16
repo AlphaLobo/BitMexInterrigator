@@ -21,7 +21,7 @@ namespace BitMexInterrigator
         public InstrumentForm()
         {
             InitializeComponent();         
-            UIDoodads = new UIDoodads(this); // Pass the controls here
+            UIDoodads = new UIDoodads(this);
             InitializeColumnSelections();
         }
 
@@ -37,18 +37,12 @@ namespace BitMexInterrigator
 
         private void InitializeColumnSelections()
         {
-            // Get the properties of the Instrument class
             var instrumentProperties = typeof(Instrument).GetProperties();
 
-            // Populate the UI with column selection options
             foreach (var property in instrumentProperties)
             {
-                // Add checkboxes for each property to the groupBoxColumnSelections
                 UIDoodads.AddColumnSelectionOption(property.Name);
             }
-
-            // Add the groupBoxColumnSelections to the form's controls
-           // this.Controls.Add(UIDoodads.groupBoxColumnSelections);
         }    
 
     }
