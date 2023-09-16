@@ -14,7 +14,7 @@ namespace BitMexInterrigator
             InstrumentManager instrumentManager = new InstrumentManager();
             instrumentManager.getTradeableInstrumentsAsync();
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.Run(new InstrumentForm());
         }
     }
 }

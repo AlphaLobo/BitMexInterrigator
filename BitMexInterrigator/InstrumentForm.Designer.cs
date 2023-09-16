@@ -1,6 +1,6 @@
 ﻿namespace BitMexInterrigator
 {
-    partial class Form1
+    partial class InstrumentForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -30,12 +30,13 @@
         {
             this.btnGetTradeableInstruments = new System.Windows.Forms.Button();
             this.groupBoxColumnSelections = new System.Windows.Forms.GroupBox();
-            this.lvInstruments = new System.Windows.Forms.ListView();
+            this.dgInstruments = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgInstruments)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGetTradeableInstruments
             // 
-            this.btnGetTradeableInstruments.Location = new System.Drawing.Point(1339, 401);
+            this.btnGetTradeableInstruments.Location = new System.Drawing.Point(1260, 565);
             this.btnGetTradeableInstruments.Name = "btnGetTradeableInstruments";
             this.btnGetTradeableInstruments.Size = new System.Drawing.Size(167, 23);
             this.btnGetTradeableInstruments.TabIndex = 0;
@@ -53,25 +54,26 @@
             this.groupBoxColumnSelections.TabStop = false;
             this.groupBoxColumnSelections.Text = "Column Options";
             // 
-            // lvInstruments
+            // dgInstruments
             // 
-            this.lvInstruments.Location = new System.Drawing.Point(1095, 12);
-            this.lvInstruments.Name = "lvInstruments";
-            this.lvInstruments.Size = new System.Drawing.Size(666, 353);
-            this.lvInstruments.TabIndex = 1;
-            this.lvInstruments.UseCompatibleStateImageBehavior = false;
-            this.lvInstruments.View = System.Windows.Forms.View.Details;
+            this.dgInstruments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgInstruments.Location = new System.Drawing.Point(1074, 3);
+            this.dgInstruments.Name = "dgInstruments";
+            this.dgInstruments.RowTemplate.Height = 25;
+            this.dgInstruments.Size = new System.Drawing.Size(525, 520);
+            this.dgInstruments.TabIndex = 4;
             // 
-            // Form1
+            // InstrumentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1849, 631);
+            this.Controls.Add(this.dgInstruments);
             this.Controls.Add(this.groupBoxColumnSelections);
-            this.Controls.Add(this.lvInstruments);
             this.Controls.Add(this.btnGetTradeableInstruments);
-            this.Name = "Form1";
+            this.Name = "InstrumentForm";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.dgInstruments)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -81,6 +83,6 @@
 
         private Button btnGetTradeableInstruments;
         private GroupBox groupBoxColumnSelections;
-        private ListView lvInstruments;
+        private DataGridView dgInstruments;
     }
 }

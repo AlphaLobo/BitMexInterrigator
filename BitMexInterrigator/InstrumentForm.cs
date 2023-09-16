@@ -4,14 +4,14 @@ using BitMexInterrogator.BitMex.Controllers;
 
 namespace BitMexInterrigator
 {
-    public partial class Form1 : Form
+    public partial class InstrumentForm : Form
     {
         private InstrumentManager instrumentManager = new InstrumentManager();
         private UIDoodads UIDoodads;
-        public Form1()
+        public InstrumentForm()
         {
             InitializeComponent();         
-            UIDoodads = new UIDoodads(groupBoxColumnSelections, lvInstruments); // Pass the controls here
+            UIDoodads = new UIDoodads(groupBoxColumnSelections, dgInstruments); // Pass the controls here
             InitializeColumnSelections();
         }
 
@@ -21,21 +21,8 @@ namespace BitMexInterrigator
             List<Instrument>? instruments = new List<Instrument>();
             instruments = await instrumentManager.getTradeableInstrumentsAsync();
 
+            dgInstruments.DataSource= instruments;
 
-
-
-            foreach (Instrument instrument in instruments)
-            {
-                if(instrument.state.ToLower() == "open")
-                {
-
-
-                    lvItem.SubItems.Add(instrument.symbol);
-                    lvItem.SubItems.Add(instrument.state);
-
-                    //  lvInstruments.Items.Add(lvItem);
-                }
-            }
         }
 
         private void InitializeColumnSelections()
@@ -52,23 +39,7 @@ namespace BitMexInterrigator
 
             // Add the groupBoxColumnSelections to the form's controls
             this.Controls.Add(UIDoodads.groupBoxColumnSelections);
-        }
-
-        private void InitializeColumnExpectedData()
-        {
-            // Get the properties of the Instrument class
-            List<string> instrumentPropertyList = UIDoodads.getColumnSelections().ToList();
-
-            foreach (string propertyName in instrumentPropertyList)
-            {
-                ListViewItem lvItem = new ListViewItem(new[] { propertyName });
-                lvInstruments.Items.Add(lvItem);
-            }
-
-
-        }
-
-        
+        }    
 
     }
 }

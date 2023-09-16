@@ -11,12 +11,12 @@ namespace BitMexInterrogator.BitMex.Controllers
     {
         private List<string> selectedColumns = new List<string>();
         public GroupBox groupBoxColumnSelections;
-        private ListView lvInstruments; // Add a reference to the ListView
+        private DataGridView _dgInstruments; // Add a reference to the ListView
 
-        public UIDoodads(GroupBox groupBox, ListView listView)
+        public UIDoodads(GroupBox groupBox, DataGridView dgInstruments)
         {
             groupBoxColumnSelections = groupBox;
-            lvInstruments = listView;
+            _dgInstruments = dgInstruments;
         }
 
         public string[] getColumnSelections()
@@ -101,12 +101,12 @@ namespace BitMexInterrogator.BitMex.Controllers
         private void UpdateListViewColumns()
         {
             // Clear existing columns
-            lvInstruments.Columns.Clear();
+            _dgInstruments.Columns.Clear();
 
             // Add columns based on the selected columns
             foreach (var columnName in selectedColumns)
             {
-                lvInstruments.Columns.Add(columnName);
+                _dgInstruments.Columns.Add(columnName, columnName);
             }
         }
 
