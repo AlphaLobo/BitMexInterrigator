@@ -19,29 +19,22 @@ namespace BitMexInterrigator.BitMex.Controllers
         public InstrumentManager()
         {
             Debug.WriteLine("InstrumentManager Instantiated");
-
             httpClient.BaseAddress = new Uri(baseURI);
-
         }
 
         public async Task<List<Instrument>> getTradeableInstrumentsAsync()
         {
             Debug.WriteLine("Getting Tradeable Instruments");
-
             List<Instrument> instruments = new List<Instrument>();
 
             try
             {
-                // Send an HTTP GET request to the BitMEX API
                 var response = await httpClient.GetAsync("instrument/active");
 
-                // Check if the request was successful
                 if (response.IsSuccessStatusCode)
                 {
-                    // Read the response content as a string
                     var content = await response.Content.ReadAsStringAsync();
 
-                    // Deserialize the JSON response into a list of Instrument objects
                     instruments = JsonSerializer.Deserialize<List<Instrument>>(content);
 
 

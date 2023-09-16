@@ -18,21 +18,19 @@ namespace BitMexInterrigator
         {
             get { return groupBoxColumnSelections; }
         }
+
         public InstrumentForm()
         {
             InitializeComponent();         
             UIDoodads = new UIDoodads(this);
             InitializeColumnSelections();
         }
-
         
         private async void btnGetTradeableInstruments_Click(object sender, EventArgs e)
         {
             List<Instrument>? instruments = new List<Instrument>();
             instruments = await instrumentManager.getTradeableInstrumentsAsync();
-
             dgInstruments.DataSource= instruments;
-
         }
 
         private void InitializeColumnSelections()
