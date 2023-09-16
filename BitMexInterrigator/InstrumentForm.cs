@@ -8,10 +8,20 @@ namespace BitMexInterrigator
     {
         private InstrumentManager instrumentManager = new InstrumentManager();
         private UIDoodads UIDoodads;
+
+        public DataGridView DgInstruments
+        {
+            get { return dgInstruments; }
+        }
+
+        public GroupBox GroupBoxColumnSelections
+        {
+            get { return groupBoxColumnSelections; }
+        }
         public InstrumentForm()
         {
             InitializeComponent();         
-            UIDoodads = new UIDoodads(groupBoxColumnSelections, dgInstruments); // Pass the controls here
+            UIDoodads = new UIDoodads(this); // Pass the controls here
             InitializeColumnSelections();
         }
 
@@ -38,7 +48,7 @@ namespace BitMexInterrigator
             }
 
             // Add the groupBoxColumnSelections to the form's controls
-            this.Controls.Add(UIDoodads.groupBoxColumnSelections);
+           // this.Controls.Add(UIDoodads.groupBoxColumnSelections);
         }    
 
     }

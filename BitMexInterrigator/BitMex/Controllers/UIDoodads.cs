@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BitMexInterrigator;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
 using System.Linq;
@@ -10,13 +11,15 @@ namespace BitMexInterrogator.BitMex.Controllers
     public class UIDoodads
     {
         private List<string> selectedColumns = new List<string>();
-        public GroupBox groupBoxColumnSelections;
-        private DataGridView _dgInstruments; // Add a reference to the ListView
+        //public GroupBox groupBoxColumnSelections;
+        //private DataGridView _dgInstruments; // Add a reference to the ListView
+        public InstrumentForm instrumentForm;
 
-        public UIDoodads(GroupBox groupBox, DataGridView dgInstruments)
+        public UIDoodads(InstrumentForm instrumentForm)
         {
-            groupBoxColumnSelections = groupBox;
-            _dgInstruments = dgInstruments;
+            //    groupBoxColumnSelections = groupBox;
+            //    _dgInstruments = dgInstruments;
+            this.instrumentForm = instrumentForm;
         }
 
         public string[] getColumnSelections()
@@ -71,7 +74,7 @@ namespace BitMexInterrogator.BitMex.Controllers
             checkBox.CheckedChanged += ColumnSelectionOption_CheckedChanged;
 
             // Add the checkbox to the group box
-            groupBoxColumnSelections.Controls.Add(checkBox);
+            instrumentForm.GroupBoxColumnSelections.Controls.Add(checkBox);
         }
 
         private void ColumnSelectionOption_CheckedChanged(object sender, EventArgs e)
@@ -101,12 +104,12 @@ namespace BitMexInterrogator.BitMex.Controllers
         private void UpdateListViewColumns()
         {
             // Clear existing columns
-            _dgInstruments.Columns.Clear();
+            instrumentForm.DgInstruments.Columns.Clear();
 
             // Add columns based on the selected columns
             foreach (var columnName in selectedColumns)
             {
-                _dgInstruments.Columns.Add(columnName, columnName);
+                instrumentForm.DgInstruments.Columns.Add(columnName, columnName);
             }
         }
 
