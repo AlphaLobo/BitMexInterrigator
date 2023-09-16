@@ -1,3 +1,4 @@
+using BitMexInterrigator.BitMex.Controllers;
 using System.Diagnostics;
 
 namespace BitMexInterrigator
@@ -10,9 +11,10 @@ namespace BitMexInterrigator
         [STAThread]
         static void Main()
         {
-            Debug.WriteLine("Hello");
+            InstrumentManager instrumentManager = new InstrumentManager();
+            instrumentManager.getTradeableInstrumentsAsync();
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.Run(new InstrumentForm());
         }
     }
 }
