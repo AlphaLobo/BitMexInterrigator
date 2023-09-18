@@ -47,7 +47,7 @@ namespace BitMexInterrogator.BitMex.Controllers
             checkBox.Location = new Point(x, y);
 
             colCount++;
-            if (colCount >= 3)
+            if (colCount >= 11)
             {
                 colCount = 0;
                 rowCount++;
