@@ -11,8 +11,6 @@ namespace BitMexInterrigator
         [STAThread]
         static void Main()
         {
-            InstrumentManager instrumentManager = new InstrumentManager();
-            instrumentManager.getTradeableInstrumentsAsync();
             ApplicationConfiguration.Initialize();
             Application.Run(new InstrumentForm());
         }

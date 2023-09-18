@@ -1,20 +1,14 @@
 ﻿using BitMexInterrigator;
-using System;
-using System.Collections.Generic;
-using System.Data.Common;
 using System.Diagnostics.Metrics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BitMexInterrogator.BitMex.Controllers
 {
-    public class UIDoodads
+    public class UIDoodadsController
     {
         private List<string> selectedColumns = new List<string>();
         public InstrumentForm instrumentForm;
 
-        public UIDoodads(InstrumentForm instrumentForm)
+        public UIDoodadsController(InstrumentForm instrumentForm)
         {
             this.instrumentForm = instrumentForm;
         }
