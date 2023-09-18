@@ -6,8 +6,8 @@ namespace BitMexInterrigator
 {
     public partial class InstrumentForm : Form
     {
-        private InstrumentManager instrumentManager = new InstrumentManager();
-        private UIDoodads UIDoodads;
+        private InstrumentManagerController instrumentManager = new InstrumentManagerController();
+        private UIDoodadsController UIDoodads;
 
         public DataGridView DgInstruments
         {
@@ -22,14 +22,14 @@ namespace BitMexInterrigator
         public InstrumentForm()
         {
             InitializeComponent();         
-            UIDoodads = new UIDoodads(this);
+            UIDoodads = new UIDoodadsController(this);
             InitializeColumnSelections();
         }
         
         private async void btnGetTradeableInstruments_Click(object sender, EventArgs e)
         {
             List<Instrument>? instruments = new List<Instrument>();
-            instruments = await instrumentManager.getTradeableInstrumentsAsync();
+            instruments = await instrumentManager.GetTradeableInstruments();
             dgInstruments.DataSource= instruments;
         }
 

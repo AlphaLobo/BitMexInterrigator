@@ -3,20 +3,18 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Net.Http;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace BitMexInterrigator.BitMex.Controllers
+namespace BitMexInterrogator.BitMex.API
 {
-    public class InstrumentManager
+    public class GetTradeableInstrumentsAPI
     {
         private readonly HttpClient httpClient = new HttpClient();
         string baseURI = "https://www.bitmex.com/api/v1/";
 
-        public InstrumentManager()
+        public GetTradeableInstrumentsAPI()
         {
             Debug.WriteLine("InstrumentManager Instantiated");
             httpClient.BaseAddress = new Uri(baseURI);
