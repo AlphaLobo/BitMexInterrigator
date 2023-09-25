@@ -5,9 +5,9 @@ namespace BitMexInterrigator.BitMex.Controllers
 {
     public class InstrumentManagerController
     {
-        GetTradeableInstrumentsAPI tradeableInstrumentsAPI = new GetTradeableInstrumentsAPI();
+        private static GetTradeableInstrumentsAPI tradeableInstrumentsAPI = new GetTradeableInstrumentsAPI();
 
-        public async Task<List<Instrument>>  GetTradeableInstruments()
+        public static async Task<List<Instrument>>  GetTradeableInstruments()
         {
             return await tradeableInstrumentsAPI.getTradeableInstrumentsAsync();
         }
