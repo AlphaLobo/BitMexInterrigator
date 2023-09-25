@@ -79,8 +79,9 @@
             this.Controls.Add(this.dgInstruments);
             this.Controls.Add(this.groupBoxColumnSelections);
             this.Controls.Add(this.btnGetTradeableInstruments);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "InstrumentForm";
-            this.Text = "Form1";
+            this.Text = "Instrument Getter";
             ((System.ComponentModel.ISupportInitialize)(this.dgInstruments)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
