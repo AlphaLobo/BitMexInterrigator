@@ -1,13 +1,6 @@
-﻿using BitMexInterrigator.BitMex.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BitMexInterrigator.BitMex.Classes
+﻿namespace BitMexInterrigator.BitMex.Classes
 {
-    public class Instrument : IInstrument
+    public class Instrument
     {
         public string symbol { get; set; }
         public string rootSymbol { get; set; }
